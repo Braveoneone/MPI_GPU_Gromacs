@@ -1,6 +1,6 @@
 Author: Yiyi
 
-If you find this tutorial is useful for your research, you can help give this repo a 🌟. Thanks!
+If you find this tutorial is helpful for your research, you can help give this repo a 🌟. Thanks!
 
 
 ### 🤔 How to set up the compilation and running environment for Molecular Dynamic software which supports mul-nodes with mul-gpus on Linux system? 
