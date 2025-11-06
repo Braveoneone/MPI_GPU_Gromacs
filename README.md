@@ -4,8 +4,10 @@
 This tutorial shows how to set up the enviroment for building the computing science software packages in linux system, in which we can run the computing science application on multiple gpus and on multiple nodes. This can help promote the running efficiency and as a prepared step for develop for software optimization on GPUs. 
 
 本教程介绍了如何在 Linux 系统中为构建计算科学软件包创建环境，这样我们就能在多个 GPU 和多个节点上运行计算科学应用程序。这有助于提高运行效率，并为在 GPU 上进行软件优化的开发工作做好准备。
-
-### 1. Set up 环境搭建 
+1.  [Set up 环境搭建](#setup)
+2.  [How to write a sbatch to let Gromacs running on multiple GPUs and multiple nodes. 如何去写sbatch 脚本，以便让Gromacs在多GPU和多节点上运行](#howto)
+3.  [Result 结果](#result)  
+### <span id="setup"></span> 1. Set up 环境搭建 
 compile UCX
 ```
 ./configure CC=gcc CXX=g++ --with-cuda=$CUDA_PATH --prefix=/your_ucx_install_dir --disable-logging --disable-debug --disable-assertions
@@ -79,7 +81,7 @@ cmake .. \
 make -j
 make install
 ```
-### 2. How to write a sbatch to let Gromacs running on multiple GPUs and multiple nodes. 如何去写sbatch 脚本，以便让Gromacs在多GPU和多节点上运行
+### <span id="howto"></span> 2. How to write a sbatch to let Gromacs running on multiple GPUs and multiple nodes. 如何去写sbatch 脚本，以便让Gromacs在多GPU和多节点上运行
 ```
 #!/bin/bash
 #SBATCH -p GPU 
@@ -127,5 +129,5 @@ $MY_MPICH_DIR/bin/mpiexec -bootstrap slurm -np $SLURM_NTASKS \
     -ntomp $SLURM_CPUS_PER_TASK \
     -nb gpu -pme gpu -pin on -nsteps 50000 -npme 1
 ```
-### 3. Result 结果
-You can find my tutorial running result example in [output_1.sh] and [output_2.sh] which is a result of running Gromacs on 1 node with 8 GPUs. 
+### <span id="result"></span> 3. Result 结果
+You can find my tutorial running result example in [output_1.sh](https://github.com/Braveoneone/MPI_Env_Note/blob/5134c1eea185696dcec9ce2eb3a52947f8466f2c/output_1.sh) and [output_2.sh](https://github.com/Braveoneone/MPI_Env_Note/blob/5134c1eea185696dcec9ce2eb3a52947f8466f2c/output_2.sh) which is a result of running Gromacs on 1 node with 8 GPUs. 
