@@ -1,7 +1,4 @@
-Author: Yiyi
-
-If you find this tutorial is helpful for your research, you can help give this repo a 🌟. Thanks!
-
+Author: Yiyi Wang
 
 ### 🤔 How to set up the compilation and running environment for Molecular Dynamic software which supports mul-nodes with mul-gpus on Linux system? 
 ### 如何在Linux系统中搭建支持多节点多GPU的分子动力学 (Molecular Dynamics, MD) 模拟软件编译运行环境？ 
