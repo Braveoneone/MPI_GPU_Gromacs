@@ -1,4 +1,7 @@
-[Please credit the original author/source.][转载请标明出处]
+Author: Yiyi
+If you find this tutorial is useful for your research, you can help give this repo a 🌟. Thanks!
+
+
 ### 🤔 How to set up the compilation and running environment for Molecular Dynamic software which supports mul-nodes with mul gpus on Linux system? 
 ### 如何在Linux系统中搭建支持多节点多GPU的分子动力学 (Molecular Dynamics, MD) 模拟软件编译运行环境？ 
 This tutorial shows how to set up the enviroment for building the computing science software packages in linux system, in which we can run the computing science application on multiple gpus and on multiple nodes. This can help promote the running efficiency and as a prepared step for develop for software optimization on GPUs. 
