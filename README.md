@@ -128,4 +128,4 @@ $MY_MPICH_DIR/bin/mpiexec -bootstrap slurm -np $SLURM_NTASKS \
     -nb gpu -pme gpu -pin on -nsteps 50000 -npme 1
 ```
 ### 3. Result 结果
-You can find my tutorial running result example in [output.sh] which is a result of running Gromacs on 1 node with 8 GPUs. 
+You can find my tutorial running result example in [output_1.sh] and [output_2.sh] which is a result of running Gromacs on 1 node with 8 GPUs. 
