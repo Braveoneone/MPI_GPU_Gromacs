@@ -140,7 +140,7 @@ wget https://developer.download.nvidia.com/compute/redist/nvshmem/
 export C_INCLUDE_PATH=$MY_MPICH_DIR/include:$C_INCLUDE_PATH
 export CPLUS_INCLUDE_PATH=$MY_MPICH_DIR/include:$CPLUS_INCLUDE_PATH
 cmake .. \
-    -DCMAKE_INSTALL_PREFIX:PATH=/.../software/nvshmem-3.0.6-mpich-custom \
+    -DCMAKE_INSTALL_PREFIX:PATH=/.../software/nvshmem-mpich-custom \
     -DNVSHMEM_MPI_SUPPORT=1 \
     -DCMAKE_C_COMPILER=$(which mpicc) \
     -DCMAKE_CXX_COMPILER=$(which mpicxx) \
