@@ -117,11 +117,8 @@ Grompp complete. Starting mdrun...
 [1761978119.832403] [w004:10186:a]      ucp_worker.c:1903 UCX  INFO    ucp_context_0 intra-node cfg#3 tag(rc_mlx5/mlx5_0:1 sysv/memory rc_mlx5/mlx5_1:1 rc_mlx5/mlx5_2:1 rc_mlx5/mlx5_3:1 rc_mlx5/mlx5_4:1 rc_mlx5/mlx5_5:1 rc_mlx5/mlx5_6:1 rc_mlx5/mlx5_7:1 rc_mlx5/mlx5_0:1 rc_mlx5/mlx5_1:1 rc_mlx5/mlx5_2:1 rc_mlx5/mlx5_3:1 rc_m
 [1761978119.846865] [w004:10187:a]      ucp_worker.c:1903 UCX  INFO    ucp_context_0 intra-node cfg#3 tag(rc_mlx5/mlx5_0:1 sysv/memory rc_mlx5/mlx5_1:1 rc_mlx5/mlx5_2:1 rc_mlx5/mlx5_3:1 rc_mlx5/mlx5_4:1 rc_mlx5/mlx5_5:1 rc_mlx5/mlx5_6:1 rc_mlx5/mlx5_7:1 rc_mlx5/mlx5_0:1 rc_mlx5/mlx5_1:1 rc_mlx5/mlx5_2:1 rc_mlx5/mlx5_3:1 rc_m
                       :-) GROMACS - gmx mdrun, 2025.3 (-:
-Command line:
-  gmx_mpi mdrun -s run_mpich4gpunpme_cm.tpr -ntomp 5 -nb gpu -pme gpu -pin on -nsteps 50000 -npme 1
+  gmx_mpi mdrun -s run_mpich4gpunpme_cm.tpr -ntomp 5 -nb gpu -pme gpu -pin on -nsteps 50000 -npme 2
 
-
-Back Off! I just backed up md.log to ./#md.log.6#
 Compiled SIMD is AVX2_256, but CPU also supports AVX_512 (see log).
 Reading file run_mpich4gpunpme_cm.tpr, VERSION 2025.3 (single precision)
 Overriding nsteps with value passed on the command line: 50000 steps, 100 ps
@@ -130,49 +127,49 @@ Changing nstlist from 10 to 80, rlist from 0.904 to 1.078
 
 This run has forced use of 'GPU-aware MPI'. However, GROMACS cannot determine if underlying MPI is GPU-aware. Check the GROMACS install guide for recommendations for GPU-aware support. If you observe failures at runtime, try unsetting the GMX_FORCE_GPU_AWARE_MPI environment variable.
 
-On host w004.ib.bridges2.psc.edu 8 GPUs selected for this run.
-Mapping of GPU IDs to the 8 GPU tasks in the 8 ranks on this node:
-  PP:0,PP:1,PP:2,PP:3,PP:4,PP:5,PP:6,PME:7
+This run has requested the 'GPU PME decomposition' feature, enabled by the GMX_GPU_PME_DECOMPOSITION environment variable. PME decomposition lacks substantial testing and should be used with caution.
+
+On host v019.ib.bridges2.psc.edu 4 GPUs selected for this run.
+Mapping of GPU IDs to the 4 GPU tasks in the 4 ranks on this node:
+  PP:0,PME:1,PP:2,PME:3
 PP tasks will do (non-perturbed) short-ranged interactions on the GPU
 PP task will update and constrain coordinates on the GPU
 PME tasks will do all aspects on the GPU
 GPU direct communication will be used between MPI ranks.
-Using 8 MPI processes
+Using 4 MPI processes
 Using 5 OpenMP threads per MPI process
 
+/ocean/projects/cis240100p/ywang102/software/nvshmem_src_3.0.6-4/src/host/init/init.cu:register_state_ptr:130: IBGDA not enabled by host lib, but passed in by device. Host ignoring IBGDA state.
 
-Back Off! I just backed up ener.edr to ./#ener.edr.4#
+/ocean/projects/cis240100p/ywang102/software/nvshmem_src_3.0.6-4/src/host/init/init.cu:register_state_ptr:130: IBGDA not enabled by host lib, but passed in by device. Host ignoring IBGDA state.
+
+
+Overriding thread affinity set outside gmx mdrun
 starting mdrun 'NADP-DEPENDENT ALCOHOL DEHYDROGENASE in water'
 50000 steps,    100.0 ps.
 
 Writing final coordinates.
 
-Back Off! I just backed up confout.gro to ./#confout.gro.4#
-
 
 Dynamic load balancing report:
  DLB got disabled because it was unsuitable to use.
- Average load imbalance: 3.3%.
- The balanceable part of the MD step is 23%, load imbalance is computed from this.
- Part of the total run time spent waiting due to load imbalance: 0.8%.
- Average PME mesh/force load: 3.060
- Part of the total run time spent waiting due to PP/PME imbalance: 37.6 %
+ Average load imbalance: 1.4%.
+ The balanceable part of the MD step is 31%, load imbalance is computed from this.
+ Part of the total run time spent waiting due to load imbalance: 0.4%.
+ Average PME mesh/force load: 4.785
+ Part of the total run time spent waiting due to PP/PME imbalance: 27.3 %
 
-NOTE: 37.6 % performance was lost because the PME ranks
+NOTE: 27.3 % performance was lost because the PME ranks
       had more work to do than the PP ranks.
       You might want to increase the number of PME ranks
       or increase the cut-off and the grid spacing.
 
 
-NOTE: 32 % of the run time was spent in domain decomposition,
-      3 % of the run time was spent in pair search,
-      you might want to increase nstlist (this has no effect on accuracy)
-
                Core t (s)   Wall t (s)        (%)
-       Time:     1046.991       26.185     3998.5
+       Time:      793.010       39.677     1998.7
                  (ns/day)    (hour/ns)
-Performance:      329.971        0.073
+Performance:      217.764        0.110
 
-GROMACS reminds you: "Nobody ever complained a seminar was too easy to understand." (Ken Dill)
+GROMACS reminds you: "Push It Real Good" (Salt 'n' Pepa)
 
  Simulation completed successfully.
