@@ -132,7 +132,7 @@ $MY_MPICH_DIR/bin/mpiexec -bootstrap slurm -np $SLURM_NTASKS \
     -nb gpu -pme gpu -pin on -nsteps 50000 -npme 2
 ```
 ### <span id="result"></span> 3. Result 结果
-You can find my tutorial running result example in [output_1.sh](https://github.com/Braveoneone/MPI_Env_Note/blob/5134c1eea185696dcec9ce2eb3a52947f8466f2c/output_1.sh) and [output_2.sh](https://github.com/Braveoneone/MPI_Env_Note/blob/5134c1eea185696dcec9ce2eb3a52947f8466f2c/output_2.sh) which is a result of running Gromacs on 1 node with 4 GPUs. 
+You can find my tutorial running result example in [output_1.sh](https://github.com/Braveoneone/MPI_Env_Note/blob/5134c1eea185696dcec9ce2eb3a52947f8466f2c/output_1.sh) and [output_2.sh](https://github.com/Braveoneone/MPI_Env_Note/blob/5134c1eea185696dcec9ce2eb3a52947f8466f2c/output_2.sh) which is a result of running Gromacs on 5 node with 8 GPUs and -npme 10. 
 
 ### <span id="nv"></span> 4. Compile NVSHMEM
 ```
